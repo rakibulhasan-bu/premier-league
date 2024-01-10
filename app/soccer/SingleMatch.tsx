@@ -8,7 +8,7 @@ import secondTeam from '../../public/teamtwo.png'
 
 export default function SingleMatch() {
     return (
-        <Link href={'/'} className='w-full flex items-center justify-between gap-6 bg-black hover:bg-white hover:text-black rounded 2xl:rounded-md p-4'>
+        <Link href={'/'} className='w-full flex flex-col lg:flex-row items-center justify-between gap-6 bg-black hover:bg-white hover:text-black rounded 2xl:rounded-md p-4'>
             {/* this is match vs div  */}
             <div className='flex items-center  gap-4 2xl:gap-8'>
                 {/* first team image and name div  */}

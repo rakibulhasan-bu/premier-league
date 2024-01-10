@@ -2,9 +2,9 @@ import SingleMatch from "./SingleMatch";
 
 export default function MiddleSoccerDiv() {
     return (
-        <div className='w-[56%] my-6 2xl:my-8'>
+        <div className='w-full lg:w-[56%] my-6 2xl:my-8'>
             {/* top div contain banner and match  */}
-            <div className='w-full h-[28dvh] bg-orange'>
+            <div className='w-full h-[28dvh] bg-orange rounded-sm'>
 
             </div>
 

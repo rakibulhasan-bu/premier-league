@@ -10,7 +10,7 @@ export default function Soccer() {
             {/* soccer nav bar here  */}
             <SoccerNavbar />
             {/* this is body of these page  */}
-            <div className='flex gap-4 2xl:gap-8'>
+            <div className='flex flex-col lg:flex-row gap-4 2xl:gap-8 mx-2 lg:mx-0'>
                 {/* this is left div for Matches  */}
                 <LeftSoccerDiv />
                 {/* this is main div for showing content */}

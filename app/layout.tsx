@@ -24,12 +24,12 @@ export default function RootLayout({
       <body className={poppins.className}>
         <div className="flex h-screen overflow-auto text-white">
           {/* this is left side bar  */}
-          <div className='w-[4%] 2xl:w-[5%] h-full overflow-auto bg-black'>
+          <div className='hidden lg:block lg:w-[4%] 2xl:w-[5%] h-full overflow-auto bg-black'>
             <LeftSidebar />
           </div>
 
           {/* this is right side  */}
-          <div className='w-[96%] 2xl:w-[95%] bg-bgBlack h-full overflow-auto'>
+          <div className='w-full lg:w-[96%] 2xl:w-[95%] bg-bgBlack h-full overflow-auto'>
             {children}
           </div>
         </div>

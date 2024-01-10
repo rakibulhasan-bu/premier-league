@@ -7,7 +7,7 @@ import { FaRegHeart } from 'react-icons/fa';
 
 export default function SoccerNavbar() {
     return (
-        <div className='h-[12dvh] 2xl:h-[15dvh] pl-8 pr-16 bg-black flex items-center justify-between'>
+        <div className='hidden lg:flex h-[12dvh] 2xl:h-[15dvh] pl-8 pr-16 bg-black items-center justify-between'>
             <div className='flex items-center gap-8 text-sm'>
                 <p>Matches</p>
                 <p>Staking</p>
