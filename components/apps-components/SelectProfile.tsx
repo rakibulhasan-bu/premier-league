@@ -13,17 +13,14 @@ import {
 export function SelectProfile() {
     return (
         <Select>
-            <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select a fruit" />
+            <SelectTrigger className="w-32">
+                <SelectValue placeholder="Wallet ID" />
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
-                    <SelectLabel>Fruits</SelectLabel>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
+                    <SelectItem value="apple">Wallet ID</SelectItem>
+                    <SelectItem value="banana">Wallet ID 2</SelectItem>
+                    <SelectItem value="blueberry">Wallet ID 3</SelectItem>
                 </SelectGroup>
             </SelectContent>
         </Select>

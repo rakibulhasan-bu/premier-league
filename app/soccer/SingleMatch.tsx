@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight, FaRegHeart } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdAccessTime } from "react-icons/md";
 import firstTeam from '../../public/teamone.png'
 import secondTeam from '../../public/teamtwo.png'
+import { IoMdHeart } from "react-icons/io";
 
 export default function SingleMatch() {
     return (
-        <Link href={'/'} className='w-full flex flex-col lg:flex-row items-center justify-between gap-6 bg-black hover:bg-white hover:text-black rounded 2xl:rounded-md p-4'>
+        <Link href={'/'} className='group text-white/50 w-full flex flex-col lg:flex-row items-center justify-between gap-6 bg-black hover:bg-white hover:text-black rounded 2xl:rounded-md p-4'>
             {/* this is match vs div  */}
             <div className='flex items-center  gap-4 2xl:gap-8'>
                 {/* first team image and name div  */}
@@ -44,10 +45,10 @@ export default function SingleMatch() {
 
             {/* this is favourites and view details div  */}
             <div className='flex items-center gap-4 2xl:gap-8'>
-                <FaRegHeart />
+                <IoMdHeart className="group-hover:text-primary" />
                 <div className="flex items-center gap-1">
                     <p className="text-sm">View Details</p>
-                    <FaArrowRight />
+                    <FaArrowRight className="group-hover:text-primary" />
                 </div>
             </div>
         </Link>
