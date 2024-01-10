@@ -21,6 +21,7 @@ const config = {
       colors: {
         black: "#0D0D0D",
         bgBlack: "#151515",
+        orange: "#FF5E19",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

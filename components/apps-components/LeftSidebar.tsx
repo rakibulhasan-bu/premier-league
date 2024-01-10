@@ -31,7 +31,7 @@ export default function LeftSidebar() {
                 <Link href={'/football'} className={`w-full flex items-center justify-center border-l-4 hover:border-primary hover:text-primary py-3 2xl:py-4 ${currentRoute === "/football" ? "text-primary border-primary" : "border-transparent"}`}>
                     <FaFootballBall />
                 </Link>
-                <Link href={'/volleyball'} className={`w-full flex items-center justify-center border-l-4 hover:border-primary hover:text-primary py-3 2xl:py-4 ${currentRoute === "/volleyball" ? "text-primary border-primary" : "border-transparent"}`}>
+                <Link href={'/basketball'} className={`w-full flex items-center justify-center border-l-4 hover:border-primary hover:text-primary py-3 2xl:py-4 ${currentRoute === "/basketball" ? "text-primary border-primary" : "border-transparent"}`}>
                     <IoBasketballSharp />
                 </Link>
             </div>
