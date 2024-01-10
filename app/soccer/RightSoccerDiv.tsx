@@ -2,6 +2,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import MatchCard from "./MatchCard";
 import Image from "next/image";
 import swapImage from '../../public/swap-image.png';
+import { Progress } from "@/components/ui/progress";
 
 export default function RightSoccerDiv() {
     return (
@@ -20,24 +21,30 @@ export default function RightSoccerDiv() {
 
             {/* this is statistics div  */}
             <div className='bg-green mr-4 p-3 rounded-lg my-6 2xl:my-10 space-y-2.5 text-xs'>
-                <div className='grid grid-cols-7 gap-1'>
+                <div className='grid grid-cols-7 gap-1.5'>
                     <p className="col-span-2">Attacks</p>
                     <p className="col-span-1">27</p>
-                    <p className="col-span-3">Attacks</p>
+                    <p className="col-span-3">
+                        <Progress value={27} />
+                    </p>
                     <p className="col-span-1">12</p>
                 </div>
 
-                <div className='grid grid-cols-7 gap-1'>
+                <div className='grid grid-cols-7 gap-1.5'>
                     <p className="col-span-2">Posts</p>
                     <p className="col-span-1">6</p>
-                    <p className="col-span-3">Attacks</p>
+                    <p className="col-span-3">
+                        <Progress value={60} />
+                    </p>
                     <p className="col-span-1">16</p>
                 </div>
 
-                <div className='grid grid-cols-7 gap-1'>
+                <div className='grid grid-cols-7 gap-1.5'>
                     <p className="col-span-2">Possession</p>
                     <p className="col-span-1">70%</p>
-                    <p className="col-span-3">Attacks</p>
+                    <p className="col-span-3">
+                        <Progress value={40} />
+                    </p>
                     <p className="col-span-1">30%</p>
                 </div>
             </div>
