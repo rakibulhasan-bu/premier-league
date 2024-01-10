@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main>
-
-    </main>
+    <div className='w-full h-full flex items-center justify-center text-4xl font-semibold'>
+      Home Page
+    </div>
   )
 }
