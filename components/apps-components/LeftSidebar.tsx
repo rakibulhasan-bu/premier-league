@@ -11,7 +11,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function LeftSidebar() {
+
     const currentRoute = usePathname();
+
     return (
         <div className=' flex flex-col gap-6'>
             <Image src={logo} alt='The Premier Collection logo' height={80} width={80} className='w-full' />
