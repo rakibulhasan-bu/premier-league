@@ -1,7 +1,18 @@
 import Image from "next/image"
 import teamOne from '../../public/teamone.png'
 
-export async function getUsers() {
+interface TMatch {
+    team: string;
+    played: number;
+    win: number;
+    draw: number;
+    loss: number;
+    goalsFor: number;
+    goalsAgainst: number;
+    points: number;
+}
+
+export async function getLeagueTable() {
     const res = await fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table', {
         cache: "no-store",
         headers: {
@@ -19,8 +30,7 @@ export async function getUsers() {
 }
 
 export default async function LeagueCard() {
-    const data = await getUsers();
-    console.log(data);
+    const data = await getLeagueTable();
     return (
         <div className='w-full text-xs space-y-2 2xl:space-y-2.5 rounded-xl py-3 px-2.5 2xl:p-4 bg-black'>
             {/* this is heading  */}
@@ -39,65 +49,22 @@ export default async function LeagueCard() {
             </div>
 
             {/* this is another divs  */}
-            <div className='flex items-center font-light'>
-                <div className='w-1/2 flex items-center gap-1'>
-                    <Image src={teamOne} alt="team" width={16} height={16} />
-                    <p>Liverpool</p>
-                </div>
+            {data.records.slice(0, 4).map((match: TMatch) => (
+                <div key={match.team} className='flex items-center font-light'>
+                    <div className='w-1/2 flex items-center gap-1'>
+                        <Image src={teamOne} alt="team" width={16} height={16} />
+                        <p>{match.team}</p>
+                    </div>
 
-                <div className='w-1/2 grid justify-items-center grid-cols-5'>
-                    <p>3</p>
-                    <p>2</p>
-                    <p>24</p>
-                    <p>9</p>
-                    <p>33</p>
+                    <div className='w-1/2 grid justify-items-center grid-cols-5'>
+                        <p>{match.draw}</p>
+                        <p>{match.loss}</p>
+                        <p>{match.goalsAgainst}</p>
+                        <p>{match.goalsFor}</p>
+                        <p>{match.points}</p>
+                    </div>
                 </div>
-            </div>
-
-            <div className='flex items-center font-light'>
-                <div className='w-1/2 flex items-center gap-1'>
-                    <Image src={teamOne} alt="team" width={16} height={16} />
-                    <p>Manchester city</p>
-                </div>
-
-                <div className='w-1/2 grid justify-items-center grid-cols-5'>
-                    <p>6</p>
-                    <p>2</p>
-                    <p>21</p>
-                    <p>16</p>
-                    <p>33</p>
-                </div>
-            </div>
-
-            <div className='flex items-center font-light'>
-                <div className='w-1/2 flex items-center gap-1'>
-                    <Image src={teamOne} alt="team" width={16} height={16} />
-                    <p>Leicester City</p>
-                </div>
-
-                <div className='w-1/2 grid justify-items-center grid-cols-5'>
-                    <p>D</p>
-                    <p>L</p>
-                    <p>Ga</p>
-                    <p>Gd</p>
-                    <p>Pts</p>
-                </div>
-            </div>
-
-            <div className='flex items-center font-light'>
-                <div className='w-1/2 flex items-center gap-1'>
-                    <Image src={teamOne} alt="team" width={16} height={16} />
-                    <p>Villareal City</p>
-                </div>
-
-                <div className='w-1/2 grid justify-items-center grid-cols-5'>
-                    <p>D</p>
-                    <p>L</p>
-                    <p>Ga</p>
-                    <p>Gd</p>
-                    <p>Pts</p>
-                </div>
-            </div>
+            ))}
         </div>
     )
 }
