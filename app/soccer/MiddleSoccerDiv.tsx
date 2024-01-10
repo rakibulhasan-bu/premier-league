@@ -55,7 +55,10 @@ export default function MiddleSoccerDiv() {
             {/* this is filter div or latest show div  */}
             <div className='flex items-center justify-between gap-6 py-4 2xl:py-6'>
                 <h4>Latest Matches</h4>
-                <h4>Filter</h4>
+                <div>
+                    <span>Filter:</span>
+
+                </div>
                 <h4>View All</h4>
             </div>
 

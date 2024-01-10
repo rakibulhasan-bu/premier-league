@@ -6,7 +6,7 @@ import { Progress } from "@/components/ui/progress";
 
 export default function RightSoccerDiv() {
     return (
-        <div className='w-full lg:w-[22%] mt-10 mb-4 2xl:my-12'>
+        <div className='w-full lg:w-[22%] lg:mt-10 mb-4 2xl:my-12'>
             {/* this is trending now match div  */}
             <div className='lg:mr-4'>
                 <div className='grid grid-cols-2 mb-4'>

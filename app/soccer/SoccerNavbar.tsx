@@ -7,8 +7,8 @@ import { FaRegHeart } from 'react-icons/fa';
 
 export default function SoccerNavbar() {
     return (
-        <div className='hidden lg:flex h-[12dvh] 2xl:h-[15dvh] px-8 2xl:px-12 bg-black items-center justify-between'>
-            <div className='flex items-center gap-8 text-sm'>
+        <div className='hidden lg:flex h-[12dvh] 2xl:h-[12dvh] px-8 2xl:px-12 bg-black items-center justify-between'>
+            <div className='flex items-center gap-8 text-sm 2xl:text-base'>
                 <p>Matches</p>
                 <p>Staking</p>
                 <p>Rewards</p>
@@ -17,7 +17,7 @@ export default function SoccerNavbar() {
             <h3 className='text-2xl font-semibold'>The Premier Collection</h3>
             <div className='flex items-center gap-12'>
                 {/* this is icons div notification message and love  */}
-                <div className='flex items-center gap-4 text-lg'>
+                <div className='flex items-center gap-4 text-lg 2xl:text-xl'>
                     <IoNotificationsOutline />
                     <HiOutlineMail />
                     <FaRegHeart />
