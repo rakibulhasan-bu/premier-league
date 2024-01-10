@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import LeftSidebar from '@/components/apps-components/LeftSidebar';
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font--Poppins"
+})
 
 export const metadata: Metadata = {
   title: 'Premier League',
@@ -17,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <div className="flex h-screen overflow-auto text-white">
           {/* this is left side bar  */}
           <div className='w-[5%] h-full bg-black'>
