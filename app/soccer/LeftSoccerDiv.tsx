@@ -9,7 +9,7 @@ import LeagueCard from "./LeagueCard";
 
 export default function LeftSoccerDiv() {
     return (
-        <div className='hidden lg:block lg:w-[22%] ml-4 mt-10 mb-4 2xl:my-12'>
+        <div className='lg:w-[22%] lg:ml-4 lg:mt-10 mb-4 2xl:my-12'>
             {/* this is live match div  */}
             <div className=''>
                 <div className='grid grid-cols-2 mb-4'>
