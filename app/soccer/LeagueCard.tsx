@@ -14,7 +14,6 @@ interface TMatch {
 
 export async function getLeagueTable() {
     const res = await fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table', {
-        cache: "no-store",
         headers: {
             'X-RapidAPI-Key': 'o7sjBtY7kTZlMse12Zd4m6AgwybNyTIM',
             'X-RapidAPI-Host': 'heisenbug-premier-league-live-scores-v1.p.rapidapi.com'
@@ -49,7 +48,7 @@ export default async function LeagueCard() {
             </div>
 
             {/* this is another divs  */}
-            {data.records.slice(0, 4).map((match: TMatch) => (
+            {data?.records?.slice(0, 4).map((match: TMatch) => (
                 <div key={match.team} className='flex items-center font-light'>
                     <div className='w-1/2 flex items-center gap-1'>
                         <Image src={teamOne} alt="team" width={16} height={16} />
