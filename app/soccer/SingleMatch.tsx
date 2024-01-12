@@ -18,23 +18,14 @@ export interface TSingleMatch {
 
 export default function SingleMatch({ match }: any) {
 
-    const dateObject = new Date(match?.fixture?.date);
-
-    // Extract hour and minute
-    const hour = dateObject.getHours();
-    const minute = dateObject.getMinutes();
-
-    // Format the result as HH:mm
-    const formattedTime = ('0' + hour).slice(-2) + ':' + ('0' + minute).slice(-2);
-
     return (
         <Link href={'/'} className='group text-white/50 w-full flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-4 bg-black hover:bg-white hover:text-black rounded 2xl:rounded-md p-4'>
             {/* this is match vs div  */}
             <div className='w-full lg:w-fit flex items-center justify-between lg:justify-normal gap-4 2xl:gap-8'>
                 {/* first team image and name div  */}
                 <div className='flex items-center gap-2 lg:gap-1 2xl:gap-2'>
-                    <Image src={match?.teams?.home?.logo} alt="Bercelona team" width={45} height={45} className="w-8 2xl:w-11 h-8 2xl:h-11 rounded-full" />
-                    <p className="text-sm 2xl:text-base">{match?.teams?.home?.name}</p>
+                    <Image src={match?.teamOne?.logo} alt="Bercelona team" width={45} height={45} className="w-8 2xl:w-11 h-8 2xl:h-11 rounded-full" />
+                    <p className="text-sm 2xl:text-base">{match?.teamOne?.name}</p>
                 </div>
                 {/* vs two team div  */}
                 <div className='flex flex-col justify-center items-center'>
@@ -44,8 +35,8 @@ export default function SingleMatch({ match }: any) {
                 </div>
                 {/* second team image and name div */}
                 <div className='flex items-center gap-2 lg:gap-1 2xl:gap-2'>
-                    <Image src={match?.teams?.away?.logo} alt="Bercelona team" width={45} height={45} className="w-8 2xl:w-11 h-8 2xl:h-11 rounded-full" />
-                    <p className="text-sm 2xl:text-base">{match?.teams?.away?.name}</p>
+                    <Image src={match?.teamTwo?.logo} alt="Bercelona team" width={45} height={45} className="w-8 2xl:w-11 h-8 2xl:h-11 rounded-full" />
+                    <p className="text-sm 2xl:text-base">{match?.teamTwo?.name}</p>
                 </div>
             </div>
 
@@ -54,12 +45,12 @@ export default function SingleMatch({ match }: any) {
                 <div className='flex items-center gap-2 lg:gap-4 2xl:gap-8'>
                     <div className='flex items-center gap-1 2xl:gap-2'>
                         <MdAccessTime className="text-base 2xl:text-lg" />
-                        <p className="text-sm 2xl:text-base">{formattedTime}</p>
+                        <p className="text-sm 2xl:text-base">{match?.time}</p>
                     </div>
 
                     <div className='flex items-center gap-1 2xl:gap-2'>
                         <IoLocationOutline className="text-base 2xl:text-lg" />
-                        <p className="text-sm 2xl:text-base">{match?.fixture?.referee}</p>
+                        <p className="text-sm 2xl:text-base">{match?.location}</p>
                     </div>
                 </div>
 

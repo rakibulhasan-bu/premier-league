@@ -10,20 +10,11 @@ interface TMatch {
     goalsFor: number;
     goalsAgainst: number;
     points: number;
+    logo: string;
 }
 
 export async function getLeagueTable() {
-    const res = await fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table', {
-        headers: {
-            'X-RapidAPI-Key': 'o7sjBtY7kTZlMse12Zd4m6AgwybNyTIM',
-            'X-RapidAPI-Host': 'heisenbug-premier-league-live-scores-v1.p.rapidapi.com'
-        }
-    })
-
-    if (!res.ok) {
-        // throw new Error('Failed to fetch data')
-        console.log(res);
-    }
+    const res = await fetch('https://premier-league-server.vercel.app/api/league-table')
 
     return res.json()
 }
@@ -48,19 +39,19 @@ export default async function LeagueCard() {
             </div>
 
             {/* this is another divs  */}
-            {data?.records?.slice(0, 4).map((match: TMatch) => (
-                <div key={match.team} className='flex items-center font-light'>
+            {data?.result?.map((match: TMatch) => (
+                <div key={match?.team} className='flex items-center font-light'>
                     <div className='w-1/2 flex items-center gap-1'>
-                        <Image src={teamOne} alt="team" width={16} height={16} />
-                        <p>{match.team}</p>
+                        <Image src={match?.logo} alt="team" width={16} height={16} className="h-5 w-5 rounded-full object-cover" />
+                        <p>{match?.team}</p>
                     </div>
 
                     <div className='w-1/2 grid justify-items-center grid-cols-5'>
-                        <p>{match.draw}</p>
-                        <p>{match.loss}</p>
-                        <p>{match.goalsAgainst}</p>
-                        <p>{match.goalsFor}</p>
-                        <p>{match.points}</p>
+                        <p>{match?.draw}</p>
+                        <p>{match?.loss}</p>
+                        <p>{match?.goalsAgainst}</p>
+                        <p>{match?.goalsFor}</p>
+                        <p>{match?.points}</p>
                     </div>
                 </div>
             ))}

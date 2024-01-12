@@ -7,7 +7,17 @@ import team from '../../public/teamone.png'
 import logo from '../../public/logo.png'
 import LeagueCard from "./LeagueCard";
 
-export default function LeftSoccerDiv() {
+async function getLeagueFixers() {
+    const res = await fetch('https://premier-league-server.vercel.app/api/league-live-match', {
+        cache: "no-cache"
+    })
+
+    return res.json()
+}
+
+export default async function LeftSoccerDiv() {
+    const { result } = await getLeagueFixers();
+
     return (
         <div className='lg:w-[22%] lg:ml-4 lg:mt-10 mb-4 2xl:my-12'>
             {/* this is live match div  */}
@@ -19,7 +29,7 @@ export default function LeftSoccerDiv() {
                         <FaArrowRight className="text-primary" />
                     </div>
                 </div>
-                <MatchCard />
+                <MatchCard match={result} />
             </div>
 
             {/* this is premier league div  */}

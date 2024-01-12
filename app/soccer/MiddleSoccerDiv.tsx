@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SingleMatch, { TSingleMatch } from "./SingleMatch";
+import SingleMatch from "./SingleMatch";
 import background from '../../public/background.png'
 import liverpool from '../../public/liverpool 1.png'
 import evarton from '../../public/everton 1.png'
@@ -7,32 +7,13 @@ import { MdAccessTime } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 
 async function getLeagueFixers() {
-    const res = await fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures/headtohead?h2h=33-34', {
-        headers: {
-            "X-RapidAPI-Key": 'o7sjBtY7kTZlMse12Zd4m6AgwybNyTIM',
-            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-        }
-    })
-
-    if (!res.ok) {
-        // throw new Error('Failed to fetch data')
-        console.log("res", res);
-    }
+    const res = await fetch('https://premier-league-server.vercel.app/api/league-fixers')
 
     return res.json()
 }
 
 export default async function MiddleSoccerDiv() {
-    const { response } = await getLeagueFixers();
-
-    const dateObject = new Date(response[0]?.fixture?.date);
-
-    // Extract hour and minute
-    const hour = dateObject.getHours();
-    const minute = dateObject.getMinutes();
-
-    // Format the result as HH:mm
-    const formattedTime = ('0' + hour).slice(-2) + ':' + ('0' + minute).slice(-2);
+    const { result } = await getLeagueFixers();
 
     return (
         <div className='w-full lg:w-[56%] my-6 2xl:my-8'>
@@ -46,9 +27,9 @@ export default async function MiddleSoccerDiv() {
                     {/* teams details div  */}
                     <div className='flex items-center justify-between'>
                         <div className='2xl:space-y-2'>
-                            <p className="text-lg lg:text-2xl 2xl:text-4xl font-semibold uppercase">{response[0]?.teams?.home?.name}</p>
+                            <p className="text-lg lg:text-2xl 2xl:text-4xl font-semibold uppercase">{result[2]?.teamOne?.name}</p>
                             <p className="pl-8 2xl:pl-12">VS</p>
-                            <p className="text-lg lg:text-2xl 2xl:text-4xl font-semibold uppercase">{response[0]?.teams?.away?.name}</p>
+                            <p className="text-lg lg:text-2xl 2xl:text-4xl font-semibold uppercase">{result[2]?.teamTwo?.name}</p>
                         </div>
                         <div className='flex items-center gap-4'>
                             <Image src={liverpool} alt="background" className="w-16 lg:w-20 2xl:w-24 h-16 lg:h-20 2xl:h-24 rounded-sm object-cover" />
@@ -62,12 +43,12 @@ export default async function MiddleSoccerDiv() {
                             <div className='flex items-center gap-4 2xl:gap-8 py-2'>
                                 <div className='flex items-center gap-1 2xl:gap-2'>
                                     <MdAccessTime className="text-base 2xl:text-lg" />
-                                    <p className="text-sm 2xl:text-base">{formattedTime}</p>
+                                    <p className="text-sm 2xl:text-base">{result[2]?.time}</p>
                                 </div>
 
                                 <div className='flex items-center gap-1 2xl:gap-2'>
                                     <IoLocationOutline className="text-base 2xl:text-lg" />
-                                    <p className="text-sm 2xl:text-base">{response[0]?.fixture?.referee}</p>
+                                    <p className="text-sm 2xl:text-base">{result[2]?.location}</p>
                                 </div>
                             </div>
                             <p className="text-xs">Next Fixture</p>
@@ -92,8 +73,8 @@ export default async function MiddleSoccerDiv() {
             {/* this is matches div or favorite show div  */}
             <div className='flex flex-col gap-2 2xl:gap-4'>
                 {
-                    response?.slice(0, 4).map((match: any) => (
-                        <SingleMatch key={match.fixture.id} match={match} />
+                    result?.map((match: any) => (
+                        <SingleMatch key={match?.location} match={match} />
                     ))
                 }
             </div>

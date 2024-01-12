@@ -4,7 +4,14 @@ import Image from "next/image";
 import swapImage from '../../public/swap-image.png';
 import { Progress } from "@/components/ui/progress";
 
-export default function RightSoccerDiv() {
+async function getLeagueFixers() {
+    const res = await fetch('https://premier-league-server.vercel.app/api/league-trending-match')
+
+    return res.json()
+}
+
+export default async function RightSoccerDiv() {
+    const { result } = await getLeagueFixers();
     return (
         <div className='w-full lg:w-[22%] lg:mt-10 mb-4 2xl:my-12'>
             {/* this is trending now match div  */}
@@ -16,7 +23,7 @@ export default function RightSoccerDiv() {
                         <FaArrowRight className="text-white/50" />
                     </div>
                 </div>
-                <MatchCard />
+                <MatchCard match={result} />
             </div>
 
             {/* this is statistics div  */}
