@@ -66,6 +66,15 @@
   }
 }
 
+Footer {
+  background: black; 
+  border-radius: 2px;
+}
+
+.bg-orange-600 {
+  background-color: rgb(234 88 12);
+}
+
 @layer base {
   * {
     @apply border-border;

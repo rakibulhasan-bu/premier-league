@@ -14,7 +14,7 @@ export function SelectProfile() {
     return (
         <Select>
             <SelectTrigger className="w-32">
-                <SelectValue placeholder="Wallet ID" />
+                <SelectValue placeholder="Connect Wallet" />
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>

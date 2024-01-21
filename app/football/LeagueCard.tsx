@@ -1,5 +1,4 @@
 import Image from "next/image"
-import teamOne from '../../public/teamone.png'
 
 interface TMatch {
     team: string;
@@ -10,11 +9,20 @@ interface TMatch {
     goalsFor: number;
     goalsAgainst: number;
     points: number;
-    logo: string;
 }
 
 export async function getLeagueTable() {
-    const res = await fetch('https://premier-league-server.vercel.app/api/league-table')
+    const res = await fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table', {
+        headers: {
+            'X-RapidAPI-Key': '19978d8ad8msh966959f511c0cedp1fbbacjsnd4ed69eb1e78',
+            'X-RapidAPI-Host': 'heisenbug-premier-league-live-scores-v1.p.rapidapi.com'
+        }
+    })
+
+    if (!res.ok) {
+        // throw new Error('Failed to fetch data')
+        console.log(res);
+    }
 
     return res.json()
 }
@@ -30,28 +38,27 @@ export default async function LeagueCard() {
                 </div>
 
                 <div className='w-1/2 grid justify-items-center grid-cols-5'>
+                    <p>MP</p>
+                    <p>W</p>
                     <p>D</p>
                     <p>L</p>
-                    <p>Ga</p>
-                    <p>Gd</p>
                     <p>Pts</p>
                 </div>
             </div>
 
             {/* this is another divs  */}
-            {data?.result?.map((match: TMatch) => (
-                <div key={match?.team} className='flex items-center font-light'>
+            {data?.records?.slice(0, 20).map((match: TMatch) => (
+                <div key={match.team} className='flex items-center font-light'>
                     <div className='w-1/2 flex items-center gap-1'>
-                        <Image src={match?.logo} alt="team" width={16} height={16} className="h-5 w-5 rounded-full object-cover" />
-                        <p>{match?.team}</p>
+                        <p>{match.team}</p>
                     </div>
 
                     <div className='w-1/2 grid justify-items-center grid-cols-5'>
-                        <p>{match?.draw}</p>
-                        <p>{match?.loss}</p>
-                        <p>{match?.goalsAgainst}</p>
-                        <p>{match?.goalsFor}</p>
-                        <p>{match?.points}</p>
+                        <p>{match.played}</p>
+                        <p>{match.win}</p>
+                        <p>{match.draw}</p>
+                        <p>{match.loss}</p>
+                        <p>{match.points}</p>
                     </div>
                 </div>
             ))}

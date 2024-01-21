@@ -1,7 +1,7 @@
-export default function RewardsPage() {
+export default function americanFootball() {
     return (
         <div className='w-full h-full flex items-center justify-center text-4xl font-semibold'>
-            Basketball Page
+            Coming soon...
         </div>
     )
 }
