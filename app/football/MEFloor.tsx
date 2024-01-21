@@ -12,7 +12,7 @@ async function getME() {
 export default async function MEFloor() {
   const data = await getME();
   return (
-    <div className="w-full text-xs space-y-2 2xl:space-y-2.5 rounded-xl py-3 2xl:p-4 bg-black">
+    <div className="w-full text-xs space-y-2 2xl:space-y-2.5 rounded-xl py-1 lg:py-3 2xl:p-4 bg-black">
       {/* this is another divs  */}
       <div key="floor" className="flex items-center font-light">
         <div className="flex items-center gap-1">
