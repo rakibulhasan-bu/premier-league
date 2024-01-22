@@ -16,7 +16,7 @@ export default async function MEFloor() {
       {/* this is another divs  */}
       <div key="floor" className="flex items-center font-light">
         <div className="flex items-center gap-1">
-          <p>
+          <div>
             The Premier Collection | &nbsp;
             <span className="font-semibold ">Floor Price:</span>
             <span className="text-primary font-medium">
@@ -30,7 +30,7 @@ export default async function MEFloor() {
               {data.listedCount}{" "}
             </span>
             / 3000
-          </p>
+          </div>
         </div>
       </div>
     </div>
